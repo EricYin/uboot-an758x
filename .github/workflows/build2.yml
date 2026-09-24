@@ -69,7 +69,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          release_tag="${env.WRT_DATE}"
+          release_tag="${{env.WRT_DATE}}"
           gh release create "$release_tag" release/* \
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
