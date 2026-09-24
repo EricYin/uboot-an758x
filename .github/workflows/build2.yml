@@ -64,12 +64,12 @@ jobs:
       - name: Set Environment Variable
         run: |
           echo "WRT_DATE=$(TZ=UTC-8 date +"%y.%m.%d-%H.%M.%S")" >> $GITHUB_ENV
-`
+
       - name: Create release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          release_tag="uboot-an758x-${env.WRT_DATE}"
+          release_tag="${env.WRT_DATE}"
           gh release create "$release_tag" release/* \
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
